@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes it fit properly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For you ghochu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #fff8f5;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Georgia, serif;
+
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 42px;
+            color: #704646;
+
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #9b7777;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           BOUQUET
+        ========================= */
+
+        .bouquet {
+            position: relative;
+
+            width: 100%;
+            height: 360px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           STEMS
+        ========================= */
+
+        .stem {
+            position: absolute;
+
+            width: 6px;
+            height: 250px;
+
+            background: #66875e;
+
+            bottom: 25px;
+            left: 50%;
+
+            border-radius: 10px;
+
+            transform-origin: bottom;
+        }
+
+        .stem1 {
+            transform: translateX(-50%) rotate(-25deg);
+        }
+
+        .stem2 {
+            transform: translateX(-50%) rotate(-12deg);
+        }
+
+        .stem3 {
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .stem4 {
+            transform: translateX(-50%) rotate(12deg);
+        }
+
+        .stem5 {
+            transform: translateX(-50%) rotate(25deg);
+        }
+
+
+        /* =========================
+           LEAVES
+        ========================= */
+
+        .leaf {
+            position: absolute;
+
+            width: 45px;
+            height: 23px;
+
+            background: #78976c;
+
+            border-radius: 100% 0 100% 0;
+        }
+
+        .leaf1 {
+            left: 18%;
+            bottom: 100px;
+
+            transform: rotate(25deg);
+        }
+
+        .leaf2 {
+            left: 30%;
+            bottom: 65px;
+
+            transform: rotate(-25deg);
+        }
+
+        .leaf3 {
+            right: 18%;
+            bottom: 100px;
+
+            transform: scaleX(-1) rotate(25deg);
+        }
+
+        .leaf4 {
+            right: 30%;
+            bottom: 65px;
+
+            transform: scaleX(-1) rotate(-25deg);
+        }
+
+
+        /* =========================
+           FLOWERS
+        ========================= */
+
+        .flower {
+            position: absolute;
+
+            width: 110px;
+            height: 110px;
+
+            z-index: 5;
+        }
+
+
+        /* Flower positions */
+
+        .flower1 {
+            left: 3%;
+            top: 40px;
+
+            transform: rotate(-10deg);
+        }
+
+        .flower2 {
+            left: 23%;
+            top: 10px;
+
+            transform: rotate(-5deg);
+        }
+
+        .flower3 {
+            left: 50%;
+            top: 0;
+
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .flower4 {
+            right: 23%;
+            top: 10px;
+
+            transform: rotate(5deg);
+        }
+
+        .flower5 {
+            right: 3%;
+            top: 40px;
+
+            transform: rotate(10deg);
+        }
+
+
+        /* Individual petals */
+
+        .petal {
+            position: absolute;
+
+            width: 50px;
+            height: 65px;
+
+            left: 30px;
+            top: 18px;
+
+            border-radius: 50%;
+
+            transform-origin: 50% 100%;
+        }
+
+
+        .petal:nth-child(1) {
+            transform: rotate(0deg) translateY(-23px);
+        }
+
+        .petal:nth-child(2) {
+            transform: rotate(72deg) translateY(-23px);
+        }
+
+        .petal:nth-child(3) {
+            transform: rotate(144deg) translateY(-23px);
+        }
+
+        .petal:nth-child(4) {
+            transform: rotate(216deg) translateY(-23px);
+        }
+
+        .petal:nth-child(5) {
+            transform: rotate(288deg) translateY(-23px);
+        }
+
+
+        /* Flower colours */
+
+        .pink .petal {
+            background: #e39aaa;
+        }
+
+        .red .petal {
+            background: #d87878;
+        }
+
+        .yellow .petal {
+            background: #f0d394;
+        }
+
+
+        /* Flower centres */
+
+        .center {
+            position: absolute;
+
+            width: 30px;
+            height: 30px;
+
+            left: 40px;
+            top: 40px;
+
+            border-radius: 50%;
+
+            background: #c88a43;
+
+            z-index: 10;
+        }
+
+
+        /* =========================
+           RIBBON
+        ========================= */
+
+        .ribbon {
+            position: absolute;
+
+            bottom: 15px;
+            left: 50%;
+
+            width: 110px;
+            height: 70px;
+
+            transform: translateX(-50%);
+
+            z-index: 10;
+        }
+
+        .ribbon-left,
+        .ribbon-right {
+            position: absolute;
+
+            width: 35px;
+            height: 25px;
+
+            background: #b75f68;
+
+            top: 5px;
+
+            border-radius: 50%;
+        }
+
+        .ribbon-left {
+            left: 18px;
+            transform: rotate(-25deg);
+        }
+
+        .ribbon-right {
+            right: 18px;
+            transform: rotate(25deg);
+        }
+
+        .ribbon-center {
+            position: absolute;
+
+            width: 25px;
+            height: 28px;
+
+            background: #a94f59;
+
+            left: 43px;
+            top: 7px;
+
+            border-radius: 7px;
+        }
+
+        .tail-left,
+        .tail-right {
+            position: absolute;
+
+            width: 27px;
+            height: 45px;
+
+            background: #b75f68;
+
+            top: 27px;
+        }
+
+        .tail-left {
+            left: 30px;
+
+            transform: rotate(10deg);
+        }
+
+        .tail-right {
+            right: 30px;
+
+            transform: rotate(-10deg);
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            margin-top: 5px;
+
+            font-size: 32px;
+
+            color: #704646;
+        }
+
+
+        /* =========================
+           PHONE FIX
+        ========================= */
+
+        @media (max-width: 450px) {
+
+            .bouquet {
+                height: 320px;
+            }
+
+            .flower {
+                width: 85px;
+                height: 85px;
+            }
+
+            .petal {
+                width: 40px;
+                height: 52px;
+
+                left: 23px;
+                top: 14px;
+            }
+
+            .center {
+                width: 24px;
+                height: 24px;
+
+                left: 31px;
+                top: 31px;
+            }
+
+            .flower1 {
+                left: 0;
+            }
+
+            .flower2 {
+                left: 19%;
+            }
+
+            .flower4 {
+                right: 19%;
+            }
+
+            .flower5 {
+                right: 0;
+            }
+
+            .message {
+                font-size: 27px;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="title">💐</div>
+
+        <div class="subtitle">
+            a little something for you
+        </div>
+
+
+        <div class="bouquet">
+
+            <!-- Stems -->
+
+            <div class="stem stem1"></div>
+            <div class="stem stem2"></div>
+            <div class="stem stem3"></div>
+            <div class="stem stem4"></div>
+            <div class="stem stem5"></div>
+
+
+            <!-- Leaves -->
+
+            <div class="leaf leaf1"></div>
+            <div class="leaf leaf2"></div>
+            <div class="leaf leaf3"></div>
+            <div class="leaf leaf4"></div>
+
+
+            <!-- FLOWER 1 -->
+
+            <div class="flower red flower1">
+
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+
+                <div class="center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 2 -->
+
+            <div class="flower pink flower2">
+
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+
+                <div class="center"></div>
+
+            </div>
+
+
+            <!-- CENTER FLOWER -->
+
+            <div class="flower yellow flower3">
+
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+
+                <div class="center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 4 -->
+
+            <div class="flower pink flower4">
+
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+
+                <div class="center"></div>
+
+            </div>
+
+
+            <!-- FLOWER 5 -->
+
+            <div class="flower red flower5">
+
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+
+                <div class="center"></div>
+
+            </div>
+
+
+            <!-- Ribbon -->
+
+            <div class="ribbon">
+
+                <div class="ribbon-left"></div>
+                <div class="ribbon-right"></div>
+
+                <div class="ribbon-center"></div>
+
+                <div class="tail-left"></div>
+                <div class="tail-right"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Message -->
+
+        <div class="message">
+            for you ghochu ♡
+        </div>
+
+    </div>
+
+</body>
+</html>
