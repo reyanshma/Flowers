@@ -1,565 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Makes it fit properly on phones -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For you ghochu</title>
 
-    <title>For you ghochu</title>
+<style>
 
-    <style>
+* {
+    box-sizing: border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fff8f5;
 
-        body {
-            margin: 0;
-            min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            background: #fff8f5;
+    overflow: hidden;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    font-family: Georgia, serif;
+}
 
-            font-family: Georgia, serif;
+.container {
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+}
 
-            overflow: hidden;
-        }
 
-        .container {
-            width: 100%;
-            max-width: 500px;
+/* =========================
+   BOUQUET
+========================= */
 
-            text-align: center;
+.bouquet {
+    position: relative;
 
-            padding: 20px;
-        }
+    width: 100%;
+    height: 420px;
 
-        .title {
-            font-size: 42px;
-            color: #704646;
+    animation: pickUp 2.2s ease-in-out forwards;
 
-            margin-bottom: 5px;
-        }
+    transform-origin: 50% 80%;
+}
 
-        .subtitle {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            color: #9b7777;
 
-            margin-bottom: 20px;
-        }
+/* Bouquet starts sideways,
+   then gets gently picked upright */
 
+@keyframes pickUp {
 
-        /* =========================
-           BOUQUET
-        ========================= */
+    0% {
+        transform: rotate(75deg) translateX(30px);
+    }
 
-        .bouquet {
-            position: relative;
+    35% {
+        transform: rotate(75deg) translateX(30px);
+    }
 
-            width: 100%;
-            height: 360px;
+    70% {
+        transform: rotate(0deg) translateX(0);
+    }
 
-            margin: auto;
-        }
+    82% {
+        transform: rotate(-3deg);
+    }
 
+    92% {
+        transform: rotate(1.5deg);
+    }
 
-        /* =========================
-           STEMS
-        ========================= */
+    100% {
+        transform: rotate(0deg);
+    }
+}
 
-        .stem {
-            position: absolute;
 
-            width: 6px;
-            height: 250px;
+/* =========================
+   STEMS
+========================= */
 
-            background: #66875e;
+.stem {
+    position: absolute;
 
-            bottom: 25px;
-            left: 50%;
+    width: 6px;
+    height: 270px;
 
-            border-radius: 10px;
+    background: #66875e;
 
-            transform-origin: bottom;
-        }
+    bottom: 45px;
+    left: 50%;
 
-        .stem1 {
-            transform: translateX(-50%) rotate(-25deg);
-        }
+    border-radius: 10px;
 
-        .stem2 {
-            transform: translateX(-50%) rotate(-12deg);
-        }
+    transform-origin: bottom;
+}
 
-        .stem3 {
-            transform: translateX(-50%) rotate(0deg);
-        }
+.stem1 {
+    transform: translateX(-50%) rotate(-25deg);
+}
 
-        .stem4 {
-            transform: translateX(-50%) rotate(12deg);
-        }
+.stem2 {
+    transform: translateX(-50%) rotate(-12deg);
+}
 
-        .stem5 {
-            transform: translateX(-50%) rotate(25deg);
-        }
+.stem3 {
+    transform: translateX(-50%) rotate(0deg);
+}
 
+.stem4 {
+    transform: translateX(-50%) rotate(12deg);
+}
 
-        /* =========================
-           LEAVES
-        ========================= */
+.stem5 {
+    transform: translateX(-50%) rotate(25deg);
+}
 
-        .leaf {
-            position: absolute;
 
-            width: 45px;
-            height: 23px;
+/* =========================
+   LEAVES
+========================= */
 
-            background: #78976c;
+.leaf {
+    position: absolute;
 
-            border-radius: 100% 0 100% 0;
-        }
+    width: 48px;
+    height: 24px;
 
-        .leaf1 {
-            left: 18%;
-            bottom: 100px;
+    background: #78976c;
 
-            transform: rotate(25deg);
-        }
+    border-radius: 100% 0 100% 0;
+}
 
-        .leaf2 {
-            left: 30%;
-            bottom: 65px;
+.leaf1 {
+    left: 18%;
+    bottom: 125px;
+    transform: rotate(25deg);
+}
 
-            transform: rotate(-25deg);
-        }
+.leaf2 {
+    left: 30%;
+    bottom: 85px;
+    transform: rotate(-25deg);
+}
 
-        .leaf3 {
-            right: 18%;
-            bottom: 100px;
+.leaf3 {
+    right: 18%;
+    bottom: 125px;
+    transform: scaleX(-1) rotate(25deg);
+}
 
-            transform: scaleX(-1) rotate(25deg);
-        }
+.leaf4 {
+    right: 30%;
+    bottom: 85px;
+    transform: scaleX(-1) rotate(-25deg);
+}
 
-        .leaf4 {
-            right: 30%;
-            bottom: 65px;
 
-            transform: scaleX(-1) rotate(-25deg);
-        }
+/* =========================
+   FLOWERS
+========================= */
 
+.flower {
+    position: absolute;
 
-        /* =========================
-           FLOWERS
-        ========================= */
+    width: 115px;
+    height: 115px;
 
-        .flower {
-            position: absolute;
+    z-index: 5;
+}
 
-            width: 110px;
-            height: 110px;
 
-            z-index: 5;
-        }
+/* Positions */
 
+.flower1 {
+    left: 3%;
+    top: 55px;
+    transform: rotate(-10deg);
+}
 
-        /* Flower positions */
+.flower2 {
+    left: 23%;
+    top: 20px;
+    transform: rotate(-5deg);
+}
 
-        .flower1 {
-            left: 3%;
-            top: 40px;
+.flower3 {
+    left: 50%;
+    top: 5px;
 
-            transform: rotate(-10deg);
-        }
+    transform:
+        translateX(-50%)
+        scale(1.1);
+}
 
-        .flower2 {
-            left: 23%;
-            top: 10px;
+.flower4 {
+    right: 23%;
+    top: 20px;
+    transform: rotate(5deg);
+}
 
-            transform: rotate(-5deg);
-        }
+.flower5 {
+    right: 3%;
+    top: 55px;
+    transform: rotate(10deg);
+}
 
-        .flower3 {
-            left: 50%;
-            top: 0;
 
-            transform: translateX(-50%) scale(1.1);
-        }
+/* =========================
+   PETALS
+========================= */
 
-        .flower4 {
-            right: 23%;
-            top: 10px;
+.petal {
+    position: absolute;
 
-            transform: rotate(5deg);
-        }
+    width: 52px;
+    height: 68px;
 
-        .flower5 {
-            right: 3%;
-            top: 40px;
+    left: 31px;
+    top: 18px;
 
-            transform: rotate(10deg);
-        }
+    border-radius: 50%;
 
+    transform-origin: 50% 100%;
+}
 
-        /* Individual petals */
+.petal:nth-child(1) {
+    transform: rotate(0deg) translateY(-24px);
+}
 
-        .petal {
-            position: absolute;
+.petal:nth-child(2) {
+    transform: rotate(72deg) translateY(-24px);
+}
 
-            width: 50px;
-            height: 65px;
+.petal:nth-child(3) {
+    transform: rotate(144deg) translateY(-24px);
+}
 
-            left: 30px;
-            top: 18px;
+.petal:nth-child(4) {
+    transform: rotate(216deg) translateY(-24px);
+}
 
-            border-radius: 50%;
+.petal:nth-child(5) {
+    transform: rotate(288deg) translateY(-24px);
+}
 
-            transform-origin: 50% 100%;
-        }
 
+/* Flower colours */
 
-        .petal:nth-child(1) {
-            transform: rotate(0deg) translateY(-23px);
-        }
+.pink .petal {
+    background: #e39aaa;
+}
 
-        .petal:nth-child(2) {
-            transform: rotate(72deg) translateY(-23px);
-        }
+.red .petal {
+    background: #d87878;
+}
 
-        .petal:nth-child(3) {
-            transform: rotate(144deg) translateY(-23px);
-        }
+.yellow .petal {
+    background: #f0d394;
+}
 
-        .petal:nth-child(4) {
-            transform: rotate(216deg) translateY(-23px);
-        }
 
-        .petal:nth-child(5) {
-            transform: rotate(288deg) translateY(-23px);
-        }
+/* Centres */
 
+.center {
+    position: absolute;
 
-        /* Flower colours */
+    width: 30px;
+    height: 30px;
 
-        .pink .petal {
-            background: #e39aaa;
-        }
+    left: 42px;
+    top: 42px;
 
-        .red .petal {
-            background: #d87878;
-        }
+    border-radius: 50%;
 
-        .yellow .petal {
-            background: #f0d394;
-        }
+    background: #c88a43;
 
+    z-index: 10;
+}
 
-        /* Flower centres */
 
-        .center {
-            position: absolute;
+/* =========================
+   RIBBON
+========================= */
 
-            width: 30px;
-            height: 30px;
+.ribbon {
+    position: absolute;
 
-            left: 40px;
-            top: 40px;
+    bottom: 28px;
+    left: 50%;
 
-            border-radius: 50%;
+    width: 115px;
+    height: 75px;
 
-            background: #c88a43;
+    transform: translateX(-50%);
 
-            z-index: 10;
-        }
+    z-index: 10;
+}
 
+.ribbon-left,
+.ribbon-right {
+    position: absolute;
 
-        /* =========================
-           RIBBON
-        ========================= */
+    width: 38px;
+    height: 27px;
 
-        .ribbon {
-            position: absolute;
+    background: #b75f68;
 
-            bottom: 15px;
-            left: 50%;
+    top: 5px;
 
-            width: 110px;
-            height: 70px;
+    border-radius: 50%;
+}
 
-            transform: translateX(-50%);
+.ribbon-left {
+    left: 18px;
+    transform: rotate(-25deg);
+}
 
-            z-index: 10;
-        }
+.ribbon-right {
+    right: 18px;
+    transform: rotate(25deg);
+}
 
-        .ribbon-left,
-        .ribbon-right {
-            position: absolute;
+.ribbon-center {
+    position: absolute;
 
-            width: 35px;
-            height: 25px;
+    width: 27px;
+    height: 30px;
 
-            background: #b75f68;
+    background: #a94f59;
 
-            top: 5px;
+    left: 44px;
+    top: 7px;
 
-            border-radius: 50%;
-        }
+    border-radius: 7px;
+}
 
-        .ribbon-left {
-            left: 18px;
-            transform: rotate(-25deg);
-        }
+.tail-left,
+.tail-right {
+    position: absolute;
 
-        .ribbon-right {
-            right: 18px;
-            transform: rotate(25deg);
-        }
+    width: 29px;
+    height: 48px;
 
-        .ribbon-center {
-            position: absolute;
+    background: #b75f68;
 
-            width: 25px;
-            height: 28px;
+    top: 28px;
+}
 
-            background: #a94f59;
+.tail-left {
+    left: 30px;
+    transform: rotate(10deg);
+}
 
-            left: 43px;
-            top: 7px;
+.tail-right {
+    right: 30px;
+    transform: rotate(-10deg);
+}
 
-            border-radius: 7px;
-        }
 
-        .tail-left,
-        .tail-right {
-            position: absolute;
+/* =========================
+   MESSAGE
+========================= */
 
-            width: 27px;
-            height: 45px;
+.message {
+    margin-top: -5px;
 
-            background: #b75f68;
+    font-size: 34px;
 
-            top: 27px;
-        }
+    color: #704646;
 
-        .tail-left {
-            left: 30px;
+    opacity: 0;
 
-            transform: rotate(10deg);
-        }
+    animation:
+        messageAppear
+        0.8s ease
+        1.9s
+        forwards;
+}
 
-        .tail-right {
-            right: 30px;
+@keyframes messageAppear {
 
-            transform: rotate(-10deg);
-        }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        /* =========================
-           MESSAGE
-        ========================= */
+}
 
-        .message {
-            margin-top: 5px;
 
-            font-size: 32px;
+/* =========================
+   PHONE
+========================= */
 
-            color: #704646;
-        }
+@media (max-width: 450px) {
 
+    .bouquet {
+        height: 360px;
+    }
 
-        /* =========================
-           PHONE FIX
-        ========================= */
+    .flower {
+        width: 88px;
+        height: 88px;
+    }
 
-        @media (max-width: 450px) {
+    .petal {
+        width: 40px;
+        height: 53px;
 
-            .bouquet {
-                height: 320px;
-            }
+        left: 24px;
+        top: 14px;
+    }
 
-            .flower {
-                width: 85px;
-                height: 85px;
-            }
+    .center {
+        width: 24px;
+        height: 24px;
 
-            .petal {
-                width: 40px;
-                height: 52px;
+        left: 32px;
+        top: 32px;
+    }
 
-                left: 23px;
-                top: 14px;
-            }
+    .flower1 {
+        left: 0;
+    }
 
-            .center {
-                width: 24px;
-                height: 24px;
+    .flower2 {
+        left: 19%;
+    }
 
-                left: 31px;
-                top: 31px;
-            }
+    .flower4 {
+        right: 19%;
+    }
 
-            .flower1 {
-                left: 0;
-            }
+    .flower5 {
+        right: 0;
+    }
 
-            .flower2 {
-                left: 19%;
-            }
+    .message {
+        font-size: 28px;
+    }
 
-            .flower4 {
-                right: 19%;
-            }
+}
 
-            .flower5 {
-                right: 0;
-            }
-
-            .message {
-                font-size: 27px;
-            }
-
-            .title {
-                font-size: 36px;
-            }
-        }
-
-    </style>
+</style>
 </head>
 
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="title">💐</div>
+    <div class="bouquet">
 
-        <div class="subtitle">
-            a little something for you
-        </div>
-
-
-        <div class="bouquet">
-
-            <!-- Stems -->
-
-            <div class="stem stem1"></div>
-            <div class="stem stem2"></div>
-            <div class="stem stem3"></div>
-            <div class="stem stem4"></div>
-            <div class="stem stem5"></div>
+        <!-- Stems -->
+        <div class="stem stem1"></div>
+        <div class="stem stem2"></div>
+        <div class="stem stem3"></div>
+        <div class="stem stem4"></div>
+        <div class="stem stem5"></div>
 
 
-            <!-- Leaves -->
-
-            <div class="leaf leaf1"></div>
-            <div class="leaf leaf2"></div>
-            <div class="leaf leaf3"></div>
-            <div class="leaf leaf4"></div>
-
-
-            <!-- FLOWER 1 -->
-
-            <div class="flower red flower1">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="center"></div>
-
-            </div>
+        <!-- Leaves -->
+        <div class="leaf leaf1"></div>
+        <div class="leaf leaf2"></div>
+        <div class="leaf leaf3"></div>
+        <div class="leaf leaf4"></div>
 
 
-            <!-- FLOWER 2 -->
+        <!-- Flower 1 -->
+        <div class="flower red flower1">
 
-            <div class="flower pink flower2">
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
 
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="center"></div>
-
-            </div>
-
-
-            <!-- CENTER FLOWER -->
-
-            <div class="flower yellow flower3">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="center"></div>
-
-            </div>
-
-
-            <!-- FLOWER 4 -->
-
-            <div class="flower pink flower4">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="center"></div>
-
-            </div>
-
-
-            <!-- FLOWER 5 -->
-
-            <div class="flower red flower5">
-
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-                <div class="petal"></div>
-
-                <div class="center"></div>
-
-            </div>
-
-
-            <!-- Ribbon -->
-
-            <div class="ribbon">
-
-                <div class="ribbon-left"></div>
-                <div class="ribbon-right"></div>
-
-                <div class="ribbon-center"></div>
-
-                <div class="tail-left"></div>
-                <div class="tail-right"></div>
-
-            </div>
+            <div class="center"></div>
 
         </div>
 
 
-        <!-- Message -->
+        <!-- Flower 2 -->
+        <div class="flower pink flower2">
 
-        <div class="message">
-            for you ghochu ♡
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- Center Flower -->
+        <div class="flower yellow flower3">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- Flower 4 -->
+        <div class="flower pink flower4">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- Flower 5 -->
+        <div class="flower red flower5">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- Ribbon -->
+        <div class="ribbon">
+
+            <div class="ribbon-left"></div>
+            <div class="ribbon-right"></div>
+
+            <div class="ribbon-center"></div>
+
+            <div class="tail-left"></div>
+            <div class="tail-right"></div>
+
         </div>
 
     </div>
+
+
+    <div class="message">
+        for you ghochu
+    </div>
+
+</div>
 
 </body>
 </html>
